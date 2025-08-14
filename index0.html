@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TN Used Cars | Trusted Second-Hand Cars in Tamil Nadu</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        background: #f9f9f9;
+        margin: 40;
+        padding: 0;
+    }
+
+    header {
+        background: #222;
+        color: white;
+        padding: 20px;
+        text-align: center;
+    }
+
+    h1 {
+        margin: 0;
+    }
+
+    h2 {
+        text-align: center;
+        margin-top: 30px;
+    }
+
+    .car-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0;
+        max-width: 800px;
+        margin: auto;
+        position: relative;
+    }
+
+    .car {
+        position: relative;
+        overflow: visible;
+    }
+
+    .car img {
+        width: 100%;
+        height: 100%;
+        display: block;
+        object-fit: cover;
+        transition: transform 0.3s ease;
+        position: relative;
+    }
+
+    .car img:hover {
+        transform: scale(1.15);
+        z-index: 10;
+    }
+
+    /* Lightbox styling */
+    #lightbox {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0; top: 0;
+        width: 100%; height: 100%;
+        background: rgba(0,0,0,0.9);
+        justify-content: center;
+        align-items: center;
+    }
+
+    #lightbox img {
+        max-width: 90%;
+        max-height: 80%;
+    }
+
+    .close, .prev, .next {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        font-size: 40px;
+        color: white;
+        cursor: pointer;
+        user-select: none;
+    }
+
+    .close {
+        top: 20px;
+        right: 40px;
+        font-size: 50px;
+    }
+
+    .prev { left: 20px; }
+    .next { right: 20px; }
+</style>
+</head>
+<body>
+
+<header>
+    <h1>TN Second Hand Cars</h1>
+    <p>Quality Pre-Owned Vehicles in Tamil Nadu</p>
+</header>
+
+<nav>
+  <a href="#cars">Available Cars</a>
+  <a href="#about">About Us</a>
+  <a href="#contact us">Contact</a>
+</nav>
+
+
+<!-- Polo -->
+<h2>Volkswagen Polo</h2>
+<div class="car-grid">
+    <div class="car"><img src="polo1.jpeg" onclick="openLightbox(this)"></div>
+    <div class="car"><img src="polo2.jpeg" onclick="openLightbox(this)"></div>
+    <div class="car"><img src="polo3.jpeg" onclick="openLightbox(this)"></div>
+    <div class="car"><img src="polo4.jpeg" onclick="openLightbox(this)"></div>
+</div>
+
+<!-- Vento -->
+<h2>Volkswagen Vento</h2>
+<div class="car-grid">
+    <div class="car"><img src="vento1.jpeg" onclick="openLightbox(this)"></div>
+    <div class="car"><img src="vento2.jpeg" onclick="openLightbox(this)"></div>
+    <div class="car"><img src="vento3.jpeg" onclick="openLightbox(this)"></div>
+    <div class="car"><img src="vento4.jpeg" onclick="openLightbox(this)"></div>
+</div>
+
+<!-- Ertiga -->
+<h2>Maruti Suzuki Ertiga</h2>
+<div class="car-grid">
+    <div class="car"><img src="ertiga1.jpeg" onclick="openLightbox(this)"></div>
+    <div class="car"><img src="ertiga2.jpeg" onclick="openLightbox(this)"></div>
+    <div class="car"><img src="ertiga3.jpeg" onclick="openLightbox(this)"></div>
+    <div class="car"><img src="ertiga4.jpeg" onclick="openLightbox(this)"></div>
+</div>
+
+<!-- Lightbox -->
+<div id="lightbox">
+    <span class="close" onclick="closeLightbox()">&times;</span>
+    <span class="prev" onclick="changeSlide(-1)">&#10094;</span>
+    <img id="lightbox-img" src="">
+    <span class="next" onclick="changeSlide(1)">&#10095;</span>
+</div>
+
+<script>
+let thumbnails = document.querySelectorAll(".car img");
+let currentIndex = 0;
+
+function openLightbox(imgElement) {
+    thumbnails = document.querySelectorAll(".car img");
+    currentIndex = Array.from(thumbnails).indexOf(imgElement);
+    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById("lightbox-img").src = thumbnails[currentIndex].src;
+}
+
+function closeLightbox() {
+    document.getElementById("lightbox").style.display = "none";
+}
+
+function changeSlide(n) {
+    currentIndex = (currentIndex + n + thumbnails.length) % thumbnails.length;
+    document.getElementById("lightbox-img").src = thumbnails[currentIndex].src;
+}
+</script>
+
+<section id="about">
+  <h2>About Our Business</h2>
+  <p>
+    Welcome to TN Used Cars – your reliable partner for buying and selling second-hand cars in Tamil Nadu. 
+    We specialize in quality pre-owned vehicles including Polo, Vento, Ertiga, and more. 
+    Every car we sell is thoroughly inspected, certified, and offered at competitive prices.
+  </p>
+</section>
+
+<section id="contact">
+  <h2>Contact Us</h2>
+  <p>📞 Phone: +91-98765-43210</p>
+  <p>📍 Location: Chennai, Tamil Nadu</p>
+  <p>📧 Email: contact@tnusedcars.in</p>
+</section>
+
+<footer>
+  <p>&copy; 2025 TN Used Cars. All rights reserved.</p>
+</footer>
+
+</body>
+</html>
